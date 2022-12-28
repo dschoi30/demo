@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.post.Post;
-import com.example.demo.domain.post.repository.PostRepository;
-import com.example.demo.domain.post.repository.PostForm;
-import com.example.demo.domain.post.repository.PostUpdateDto;
+import com.example.demo.domain.posts.Post;
+import com.example.demo.domain.posts.repository.PostRepository;
+import com.example.demo.domain.posts.dto.PostSaveDto;
+import com.example.demo.domain.posts.dto.PostUpdateDto;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +31,9 @@ class PostControllerTest {
     @Test
     public void save_post() {
         //given
-        String userName = "admin";
         String title = "title";
         String content = "content";
-        PostForm postForm = PostForm.builder()
-                .userName(userName)
+        PostSaveDto postForm = PostSaveDto.builder()
                 .title(title)
                 .content(content)
                 .build();
@@ -57,7 +55,6 @@ class PostControllerTest {
     @Disabled
     public void update_post() {
         Post savedPost = postRepository.save(Post.builder()
-                .userName("tester")
                 .title("title")
                 .content("content")
                 .build());
