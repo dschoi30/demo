@@ -13,7 +13,7 @@ public class UserApiController {
     private final UserService userService;
 
     @PostMapping("/api/v1/users")
-    public Long createUser(@RequestParam UserSaveDto userSaveDto) {
+    public Long createUser(@RequestBody UserSaveDto userSaveDto) {
 
         return userService.save(userSaveDto);
     }

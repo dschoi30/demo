@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.domain.posts.controller;
 
 import com.example.demo.domain.posts.Post;
 import com.example.demo.domain.posts.repository.PostRepository;
