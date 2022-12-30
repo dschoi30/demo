@@ -1,5 +1,6 @@
 package com.example.demo.domain.users.service;
 
+import com.example.demo.domain.users.Address;
 import com.example.demo.domain.users.User;
 import com.example.demo.domain.users.dto.UserResponseDto;
 import com.example.demo.domain.users.dto.UserSaveDto;
@@ -24,7 +25,7 @@ public class UserService {
     public Long update(Long id, UserUpdateDto userUpdateDto) {
 
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 유저가 없습니다. id = " + id));
-        user.update(userUpdateDto.getPassword(), userUpdateDto.getAddress());
+        user.update(userUpdateDto.getPassword(), new Address(userUpdateDto.getZipCode(), userUpdateDto.getAddress(), userUpdateDto.getSubAddress()));
 
         return user.getId();
     }

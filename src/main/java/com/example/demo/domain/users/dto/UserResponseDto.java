@@ -13,14 +13,16 @@ public class UserResponseDto {
     private Long id;
     private String name;
     private String password;
-    private Address address;
-    private List<Order> orders;
+    private int zipCode;
+    private String address;
+    private String subAddress;
 
     public UserResponseDto(User entity) {
         this.id = entity.getId();
         this.name = entity.getName();
         this.password = entity.getPassword();
-        this.address = entity.getAddress();
-        this.orders = entity.getOrders();
+        this.zipCode = entity.getAddress().getZipCode();
+        this.address = entity.getAddress().getAddress();
+        this.subAddress = entity.getAddress().getSubAddress();
     }
 }

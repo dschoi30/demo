@@ -7,58 +7,64 @@
     <title>Document</title>
 </head>
 <body>
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Simple header</span>
-        </a>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+                <span class="fs-4">Simple header</span>
+            </a>
 
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-        </ul>
-    </header>
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </header>
 
-    <div class="row">
-        <div class="contents">
-            <br><br>
-            <div class="row justify-content-center"><h2>상품 등록</h2></div>
-            <br><br>
-            <form>
-                <table class="table">
-                    <tr>
-                        <td><label th:for="name">사용자명</label></td>
-                        <td><input type="text" size="80" id="name" name="name"></td>
-                    </tr>
-                    <tr>
-                        <td><label th:for="password">비밀번호</label></td>
-                        <td><input type="text" size="80" id="password" name="password"></td>
-                    </tr>
-                    <tr>
-                        <td><label th:for="zipCode">우편번호</label></td>
-                        <td><input type="text" size="80" id="zipCode" name="zipCode"></td>
-                    </tr>
-                    <tr>
-                        <td><label th:for="address">주소</label></td>
-                        <td><input type="text" size="80" id="address" name="address"/></td>
-                    </tr>
-                    <tr>
-                        <td><label th:for="subAddress">상세 주소</label></td>
-                        <td><input type="text" size="80" id="subAddress" name="subAddress"></td>
-                    </tr>
-                    <tr>
-                </table>
-            </form>
-            <div class="align-btn-prod-write">
-                <button type="reset" class="btn btn-light text-nowrap">입력취소</button>
-                <button class="btn btn-light text-nowrap">미리보기</button>
-                <button class="btn btn-light text-nowrap">중간저장</button>
-                <button type="button" class="btn btn-light text-nowrap" id="btn-save">저장하기</button>
+        <div class="row">
+            <div class="contents">
+                <br><br>
+                <div class="row justify-content-center"><h2>상품 수정</h2></div>
+                <br><br>
+                <form>
+                    <input type="hidden" id="id" th:field="*{user.id}">
+                    <table class="table">
+                        <tr>
+                            <td><label th:for="name">사용자명</label></td>
+                            <td th:text="${user.name}"></td>
+                        </tr>
+                        <tr>
+                            <td><label th:for="password">비밀번호</label></td>
+                            <td><input type="text" size="80" id="password" name="password" th:text="${user.password}"></td>
+                        </tr>
+                        <tr>
+                            <td><label th:for="zipCode">우편번호</label></td>
+                            <td><input type="text" size="80" id="zipCode" name="zipCode" th:text="${user.zipCode}"></td>
+                        </tr>
+                        <tr>
+                            <td><label th:for="address">주소</label></td>
+                            <td><input type="text" size="80" id="address" name="address" th:text="${user.address}"></td>
+                        </tr>
+                        <tr>
+                            <td><label th:for="subAddress">상세 주소</label></td>
+                            <td><input type="text" size="80" id="subAddress" name="subAddress" th:text="${user.subAddress}"></td>
+                        </tr>
+                        <tr>
+                    </table>
+                </form>
+                <div class="align-btn-prod-write">
+                    <button type="reset" class="btn btn-light text-nowrap">입력취소</button>
+                    <button class="btn btn-light text-nowrap">미리보기</button>
+                    <button class="btn btn-light text-nowrap">중간저장</button>
+                    <button type="button" class="btn btn-light text-nowrap" id="btn-update">저장하기</button>
+                </div>
             </div>
         </div>
+
+    <footer th:replace="common/footer :: footer"></footer>
     </div>
-</div>
+    <script src="/js/app/users.js"></script>
+</body>
+</html>

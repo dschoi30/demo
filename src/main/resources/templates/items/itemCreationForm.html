@@ -3,27 +3,27 @@
       <br><br>
       <div class="row justify-content-center"><h2>상품 등록</h2></div>
       <br><br>
-      <form th:action="@{/items/new}" th:object="${itemForm}" method="post">
+      <form>
         <table class="table">
           <tr>
             <td><label th:for="itemName">상품명</label></td>
-            <td><input type="text" size="80" th:field="*{itemName}"></td>
+            <td><input type="text" size="80" name="itemName"></td>
           </tr>
           <tr>
             <td><label th:for="stockQuantity">상품 수량(개)</label></td>
-            <td><input type="text" size="80" th:field="*{stockQuantity}"></td>
+            <td><input type="text" size="80" name="stockQuantity"></td>
           </tr>
           <tr>
             <td><label th:for="price">판매가(원)</label></td>
-            <td><input type="text" size="80" th:field="*{price}"></td>
+            <td><input type="text" size="80" name=price"></td>
           </tr>
           <tr>
             <td><label th:for="itemImage">이미지(기능 추가 요)</label></td>
-            <td><input type="file" th:field="*{itemImage}" /></td>
+            <td><input type="file" name="itemImage"></td>
           </tr>
           <tr>
             <td><label th:for="content">상품 설명</label></td>
-            <td><input type="text" size="80" th:field="*{content}"></td>
+            <td><input type="text" size="80" name="content"></td>
           </tr>
           <tr>
         </table>
@@ -32,8 +32,10 @@
           <button type="reset" class="btn btn-light text-nowrap">입력취소</button>
           <button class="btn btn-light text-nowrap">미리보기</button>
           <button class="btn btn-light text-nowrap">중간저장</button>
-          <button class="btn btn-light text-nowrap"><a href="/CHOI/HTML/product_list.html">저장하기</a></button>
+          <button type="button" class="btn btn-light text-nowrap" id="btn-save">저장하기</button>
         </div>
       </form>
     </div>
+
+    <script src="/js/app/item.js"></script>
   </div>
