@@ -24,4 +24,12 @@ public class UserApiController {
 
         return userService.update(id, userUpdateDto);
     }
+
+    @DeleteMapping("/api/v1/users/{id}")
+    public Long deleteUser(@PathVariable Long id) {
+
+        userService.delete(id);
+
+        return id;
+    }
 }

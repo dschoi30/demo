@@ -7,6 +7,9 @@ var users = {
         $('#btn-update').on('click', function () {
             _this.update();
         })
+        $('#btn-delete').on('click', function () {
+            _this.delete();
+        })
     },
     save: function() {
         var data = {
@@ -49,6 +52,23 @@ var users = {
             data: JSON.stringify(data)
         }).done(function() {
             alert('회원 정보 수정이 완료되었습니다.');
+            window.location.href = '/users/' + id;
+        }).fail(function(error) {
+            alert(JSON.stringify(error))
+        });
+    },
+
+    delete: function() {
+
+        var id =$('#id').val();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/v1/users/' + id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+        }).done(function() {
+            alert('회원 탈퇴가 완료되었습니다.');
             window.location.href = '/';
         }).fail(function(error) {
             alert(JSON.stringify(error))

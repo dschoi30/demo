@@ -1,5 +1,6 @@
 package com.example.demo.domain.orders;
 
+import com.example.demo.domain.carts.Cart;
 import com.example.demo.domain.items.Item;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -18,6 +19,11 @@ public class OrderItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

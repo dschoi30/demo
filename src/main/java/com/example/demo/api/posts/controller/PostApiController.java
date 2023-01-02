@@ -21,6 +21,4 @@ public class PostApiController {
     public Long update(@PathVariable Long id, @RequestBody PostUpdateDto postUpdateDto) {
         return postService.update(id, postUpdateDto);
     }
-
-
 }
