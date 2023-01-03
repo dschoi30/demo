@@ -15,6 +15,7 @@ var users = {
         var data = {
             name: $('#name').val(),
             password: $('#password').val(),
+            email: $('#email').val(),
             zipCode: $('#zipCode').val(),
             address: $('#address').val(),
             subAddress: $('#subAddress').val()
@@ -37,6 +38,7 @@ var users = {
         var data = {
             name: $('#name').val(),
             password: $('#password').val(),
+            email: $('#email').val(),
             zipCode: $('#zipCode').val(),
             address: $('#address').val(),
             subAddress: $('#subAddress').val()

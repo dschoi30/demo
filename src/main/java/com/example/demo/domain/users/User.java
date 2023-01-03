@@ -21,9 +21,13 @@ public class User extends BaseTimeEntity {
 
     private String name;
     private String password;
+    private String email;
 
     @Embedded
     private Address address;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @JsonIgnore
     @OneToOne(mappedBy = "user")
@@ -33,18 +37,20 @@ public class User extends BaseTimeEntity {
     private List<Order> orders = new ArrayList<>();
 
     @Builder
-    public User(String name, String password, Address address, Cart cart, List<Order> orders) {
+    public User(String name, String password, String email, Address address, Role role, Cart cart, List<Order> orders) {
         this.name = name;
         this.password = password;
+        this.email = email;
         this.address = address;
+        this.role = role;
         this.cart = cart;
         this.orders = orders;
     }
 
-    public User update(String password, Address address) {
+    public User update(String password, String email, Address address) {
         this.password = password;
+        this.email = email;
         this.address = address;
-
         return this;
     }
 }

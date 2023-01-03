@@ -13,6 +13,7 @@ public class UserResponseDto {
     private Long id;
     private String name;
     private String password;
+    private String email;
     private int zipCode;
     private String address;
     private String subAddress;
@@ -21,6 +22,7 @@ public class UserResponseDto {
         this.id = entity.getId();
         this.name = entity.getName();
         this.password = entity.getPassword();
+        this.email = entity.getEmail();
         this.zipCode = entity.getAddress().getZipCode();
         this.address = entity.getAddress().getAddress();
         this.subAddress = entity.getAddress().getSubAddress();

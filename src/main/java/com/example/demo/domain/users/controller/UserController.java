@@ -1,12 +1,15 @@
 package com.example.demo.domain.users.controller;
 
+import com.example.demo.domain.users.Role;
 import com.example.demo.domain.users.dto.UserResponseDto;
 import com.example.demo.domain.users.dto.UserSaveDto;
 import com.example.demo.domain.users.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
+
+    @ModelAttribute("roles")
+    public Role[] role() {
+        return Role.values();
+    }
 
     @GetMapping("/new")
     public String createForm(Model model) {

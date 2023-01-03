@@ -14,7 +14,7 @@ class ItemRepositoryTest {
     @Test
     public void 등록_테스트() throws Exception {
         //given
-//        itemRepository.save();
+
         //when
 
         //then

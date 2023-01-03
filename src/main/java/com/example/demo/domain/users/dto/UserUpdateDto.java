@@ -14,13 +14,15 @@ import java.util.List;
 public class UserUpdateDto {
 
     private String password;
+    private String email;
     private int zipCode;
     private String address;
     private String subAddress;
 
     @Builder
-    public UserUpdateDto(String password, int zipCode, String address, String subAddress) {
+    public UserUpdateDto(String password, String email, int zipCode, String address, String subAddress) {
         this.password = password;
+        this.email = email;
         this.zipCode = zipCode;
         this.address = address;
         this.subAddress = subAddress;

@@ -18,6 +18,8 @@ public class ItemImage {
 
     private String imageUrl;
 
+    private String repImgYn;
+
     @JsonIgnore
     @JoinColumn(name = "item_id")
     @ManyToOne(fetch = FetchType.LAZY)

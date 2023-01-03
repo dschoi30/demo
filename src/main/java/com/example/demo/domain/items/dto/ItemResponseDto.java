@@ -2,34 +2,31 @@ package com.example.demo.domain.items.dto;
 
 import com.example.demo.domain.items.Item;
 import com.example.demo.domain.items.ItemImage;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 
 import java.util.List;
 
 @Getter
-public class ItemSaveDto {
+public class ItemResponseDto {
 
+    private Long id;
     private String itemName;
     private int price;
     private int stockQuantity;
     private String content;
-
-    @Enumerated(EnumType.STRING)
     private boolean onSale;
 
     @OneToMany(mappedBy = "item")
     private List<ItemImage> itemImages;
 
-    public Item toEntity() {
-        return Item.builder()
-                .itemName(itemName)
-                .price(price)
-                .stockQuantity(stockQuantity)
-                .content(content)
-                .onSale(onSale)
-                .build();
+    public ItemResponseDto(Item entity) {
+        this.id = entity.getId();
+        this.itemName = entity.getItemName();
+        this.price = entity.getPrice();
+        this.stockQuantity = entity.getStockQuantity();
+        this.content = entity.getContent();
+        this.onSale = entity.isOnSale();
+        this.itemImages = entity.getItemImages();
     }
 }
